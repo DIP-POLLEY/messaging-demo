@@ -17,7 +17,7 @@
 <script type='text/javascript'>
 	function initEmbeddedMessaging() {
 		try {
-			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+			embeddedservice_bootstrap.settings.language = 'en_US';
 
 			embeddedservice_bootstrap.init(
 				'00DgL000002QwdV',
@@ -27,13 +27,21 @@
 					scrt2URL: 'https://orgfarm-c6d1cd8a57-dev-ed.develop.my.salesforce-scrt.com'
 				}
 			);
+
+			// Wait a bit and attempt to simulate chat open
+			setTimeout(() => {
+				// Simulate clicking the launcher if it exists
+				const chatLauncher = document.querySelector('button.embeddedServiceHelpButton');
+				if (chatLauncher) {
+					chatLauncher.click();
+				}
+			}, 3000); // Delay may need to be adjusted based on load time
+
 		} catch (err) {
 			console.error('Error loading Embedded Messaging: ', err);
 		}
 	};
 </script>
-<script type='text/javascript' src='https://orgfarm-c6d1cd8a57-dev-ed.develop.my.site.com/ESWNewFarmAgent1745911409695/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
-</body>
-</html>
+
 </body>
 </html>
